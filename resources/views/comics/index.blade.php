@@ -15,6 +15,7 @@
         <th scope="col">series</th>
         <th scope="col">sale date</th>
         <th scope="col">type</th>
+        <th scope="col"><a href="{{route("comics.create")}}"><button type="button" class="btn btn-success">create</button></a></th>
     </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
             <td>{{$comic->sale_date}}</th>
             <td>{{$comic->type}}</th>
             <td><a href="{{route("comics.show", $comic->id)}}"><button type="button" class="btn btn-primary">show</button></a></th>
+            <td><a href="{{route("comics.edit", $comic->id)}}"><button type="button" class="btn btn-warning">edit</button></a></th>
         </tr>
         @endforeach
     

@@ -6,3 +6,9 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+#ms_delete-btn {
+    display: flex;
+    justify-content: flex-end;
+}
