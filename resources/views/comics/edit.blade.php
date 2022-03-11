@@ -44,6 +44,6 @@
     <form id="ms_delete-btn" action="{{route("comics.destroy", $comic->id)}}" method="POST">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger">delete</button>
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questo fumetto?');">delete</button>
     </form>
 @endsection
