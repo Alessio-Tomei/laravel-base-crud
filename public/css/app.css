@@ -10967,3 +10967,7 @@ a.text-dark:focus {
   justify-content: flex-end;
 }
 
+.ms_bold {
+  font-weight: bold;
+}
+

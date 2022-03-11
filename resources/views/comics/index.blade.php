@@ -10,7 +10,7 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">title</th>
-        <th scope="col">image</th>
+        <th scope="col">thumb</th>
         <th scope="col">price</th>
         <th scope="col">series</th>
         <th scope="col">sale date</th>
@@ -21,15 +21,15 @@
     <tbody>
         @foreach ($comics as $comic)
         <tr>
-            <th scope="row">{{$comic->id}}</th>
-            <td>{{$comic->title}}</th>
-            <td>{{$comic->thumb}}</th>
-            <td>{{$comic->price}}</th>
-            <td>{{$comic->series}}</th>
-            <td>{{$comic->sale_date}}</th>
-            <td>{{$comic->type}}</th>
-            <td><a href="{{route("comics.show", $comic->id)}}"><button type="button" class="btn btn-primary">show</button></a></th>
-            <td><a href="{{route("comics.edit", $comic->id)}}"><button type="button" class="btn btn-warning">edit</button></a></th>
+            <td scope="row">{{$comic->id}}</td>
+            <td>{{$comic->title}}</td>
+            <td><img src="{{$comic->thumb}}" alt=""></td>
+            <td>{{$comic->price}}</td>
+            <td>{{$comic->series}}</td>
+            <td>{{$comic->sale_date}}</td>
+            <td>{{$comic->type}}</td>
+            <td><a href="{{route("comics.show", $comic->id)}}"><button type="button" class="btn btn-primary">show</button></a></td>
+            <td><a href="{{route("comics.edit", $comic->id)}}"><button type="button" class="btn btn-warning">edit</button></a></td>
         </tr>
         @endforeach
     
