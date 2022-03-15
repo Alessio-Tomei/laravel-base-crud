@@ -12,31 +12,31 @@
 
         <div class="form-group">
             <label for="title">Titolo</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo del fumetto" value="{{$comic->title}}">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo del fumetto" value="{{old('title') ?? $comic->title}}">
         </div>
         <div class="form-group">
             <label for="description">Descrizione</label>
-            <textarea class="form-control" id="description" name="description" placeholder="Inserisci la descrizione del fumetto">{{$comic->description}}</textarea>
+            <textarea class="form-control" id="description" name="description" placeholder="Inserisci la descrizione del fumetto">{{old('description') ?? $comic->description}}</textarea>
         </div>
         <div class="form-group">
             <label for="thumb">Thumb</label>
-            <input type="text" class="form-control" id="thumb" name="thumb" placeholder="Inserisci la thumb fumetto" value="{{$comic->thumb}}">
+            <input type="text" class="form-control" id="thumb" name="thumb" placeholder="Inserisci la thumb fumetto" value="{{old('thumb') ?? $comic->thumb}}">
         </div>
         <div class="form-group">
             <label for="price">Prezzo</label>
-            <input type="number" step=".01" class="form-control" id="price" name="price" placeholder="Inserisci il prezzo del fumetto" value="{{$comic->price}}">
+            <input type="number" step=".01" class="form-control" id="price" name="price" placeholder="Inserisci il prezzo del fumetto" value="{{old('price') ?? $comic->price}}">
         </div>
         <div class="form-group">
             <label for="series">Serie</label>
-            <input type="text" class="form-control" id="series" name="series" placeholder="Inserisci la series del fumetto" value="{{$comic->series}}">
+            <input type="text" class="form-control" id="series" name="series" placeholder="Inserisci la series del fumetto" value="{{old('series') ?? $comic->series}}">
         </div>
         <div class="form-group">
             <label for="sale_date">Data</label>
-            <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci la data del fumetto" value="{{$comic->sale_date}}">
+            <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci la data del fumetto" value="{{old('sale_date') ?? $comic->sale_date}}">
         </div>
         <div class="form-group">
             <label for="type">Tipo</label>
-            <input type="text" class="form-control" id="type" name="type" placeholder="Inserisci il tipo del fumetto" value="{{$comic->type}}">
+            <input type="text" class="form-control" id="type" name="type" placeholder="Inserisci il tipo del fumetto" value="{{old('type') ?? $comic->type}}">
         </div>
         <a href="{{route("comics.index")}}"><button type="button" class="btn btn-primary">back</button></a>
         <button type="submit" class="btn btn-success">save</button>
@@ -46,4 +46,13 @@
         @method('DELETE')
         <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questo fumetto?');">delete</button>
     </form>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 @endsection

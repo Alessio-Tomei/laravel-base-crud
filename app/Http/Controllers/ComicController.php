@@ -36,6 +36,21 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        // $esempio = Test::create($request->all); o passando il $data
+        // oppure istanziando un oggetto 
+        // $newEsepio->fill($data);
+        // $newEsepio->save();
+
+        $request->validate([
+            'title' => 'required|string|max:100',
+            'description' => 'required|string|max:65535',
+            'thumb' => 'url|string|max:255',
+            'price' => 'required|numeric|max:999999.99|min:0',
+            'series' => 'required|string|max:100',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:50',
+        ]);
+
         $data = $request->all();
 
         $newComic = new Comic();
@@ -84,6 +99,18 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        // $esempio->update($data);
+
+        $request->validate([
+            'title' => 'required|string|max:100',
+            'description' => 'required|string|max:65535',
+            'thumb' => 'url|string|max:255',
+            'price' => 'required|numeric|max:999999.99|min:0',
+            'series' => 'required|string|max:100',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:50',
+        ]);
+
         $data = $request->all();
 
         $comic->title = $data['title'];
